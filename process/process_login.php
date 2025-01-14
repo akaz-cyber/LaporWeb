@@ -18,6 +18,8 @@ if (mysqli_num_rows($result) > 0) {
     session_start();
     $_SESSION['id_user'] = $row["id_user"];
     $_SESSION['role_id'] = $row["role_id"];
+    $_SESSION['username'] = $row["username"];
+    $_SESSION['role_name'] = $row["role_name"];
 
     // Redirect berdasarkan role
     if ($row['role_id'] == '1') {
@@ -30,7 +32,14 @@ if (mysqli_num_rows($result) > 0) {
         exit();
     }
 } else {
-    echo "Email atau password salah!";
+    
+    echo'
+    <script>
+      alert("username dan password salah");
+       window.location.href="../loginMultiuser/login.php";    
+      </script>
+    '
+    ;
 }
 
 // Tutup koneksi
