@@ -3,45 +3,78 @@ require_once('../koneksi.php');
 
 // Ambil input dari form
 $email = $_POST['email'];
-$password = md5($_POST['password']); 
+$password = $_POST['password'];
 
-// Query untuk memeriksa user berdasarkan email dan password
-$query = "SELECT * FROM Users WHERE email = '$email' AND password = '$password'";
-$result = mysqli_query($conn, $query);
-
-
+// Query untuk memeriksa user berdasarkan email
+$query = "SELECT * FROM Users WHERE email = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
 // Mengecek pengguna
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    
+  // saya membuat sebuah password sebelum nya menggunakan md5 jadi saya membuat functipn lagi untuk bisa menerima md5 agar terbaca
+     if (strlen($row['password']) == 32) {
+       
+        if (md5($password) === $row['password']) {
+            session_start();
+            $_SESSION['id_user'] = $row["id_user"];
+            $_SESSION['role_id'] = $row["role_id"];
+            $_SESSION['username'] = $row["username"];
 
-    session_start();
-    $_SESSION['id_user'] = $row["id_user"];
-    $_SESSION['role_id'] = $row["role_id"];
-    $_SESSION['username'] = $row["username"];
-    $_SESSION['role_name'] = $row["role_name"];
+            // Redirect berdasarkan role
+            if ($row['role_id'] == '1') {
+                header("Location:../Admin/adminDashboard.php");
+                exit();
+            } elseif ($row['role_id'] == '2') {
+                header("Location:../page/lapor.php");
+                exit();
+            }
+        } else {
+            echo '
+            <script>
+              alert("Password salah");
+              window.location.href="../loginMultiuser/login.php";    
+            </script>
+            ';
+        }
+    } else {
+        if (password_verify($password, $row['password'])) {
+            session_start();
+            $_SESSION['id_user'] = $row["id_user"];
+            $_SESSION['role_id'] = $row["role_id"];
+            $_SESSION['username'] = $row["username"];
 
-    // Redirect berdasarkan role
-    if ($row['role_id'] == '1') {
-        echo "Ini halaman admin";
-        header("Location:../Admin/adminDashboard.php");
-        exit();
-    } elseif ($row['role_id'] == '2') {
-        echo "Ini halaman admin";
-        header("Location:../page/lapor.php");
-        exit();
+            // Redirect berdasarkan role
+            if ($row['role_id'] == '1') {
+                header("Location:../Admin/adminDashboard.php");
+                exit();
+            } elseif ($row['role_id'] == '2') {
+                header("Location:../page/lapor.php");
+                exit();
+            }
+        } else {
+            echo '
+            <script>
+              alert("Password salah");
+              window.location.href="../loginMultiuser/login.php";    
+            </script>
+            ';
+        }
     }
 } else {
-    
-    echo'
+    echo '
     <script>
-      alert("username dan password salah");
-       window.location.href="../loginMultiuser/login.php";    
-      </script>
-    '
-    ;
+      alert("Email tidak ditemukan");
+      window.location.href="../loginMultiuser/login.php";    
+    </script>
+    ';
 }
 
 // Tutup koneksi
-mysqli_close($conn);
+$stmt->close();
+$conn->close();
 ?>
