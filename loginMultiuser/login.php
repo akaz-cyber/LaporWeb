@@ -21,12 +21,11 @@
         crossorigin="anonymous"></script>
 
 	<main class="container mt-5">
-    <section class="container my-5">
     <div class="row align-items-center">
     <div class="col-md-6 text-center">
     <img src="../page/img/login.png" alt="Lapor" class="img-fluid" style="height: 80%;">
     </div>
-    <div class="col-md-6 " >
+    <div class="col-md-6 text-center" >
         <p ><h2>Silahkan masuk terlebih dahulu untuk melapor</h2></p>
         <form action="../process/process_login.php" method="POST">
             <div class="form-group"> <label for="email">Email:</label> <input type="email" class="form-control"
@@ -35,8 +34,7 @@
                     id="password" name="password" required> </div> <button type="submit"
                 class="btn btn-danger mt-5 w-100">Login</button>
         </form></div>
-    </div></div>
-    </section>
+    </div></div>    
 </main>
   
     <?php include '../page/component/footer.php'; ?>
