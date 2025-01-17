@@ -27,10 +27,10 @@
 						<a class="nav-link" href="#">Lapor</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Masuk</a>
+						<a class="nav-link" href="loginMultiuser/login.php">Masuk</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Daftar</a>
+						<a class="nav-link" href="loginMultiuser/register.php">Daftar</a>
 					</li>
 				</ul>
 			</div>
@@ -61,15 +61,19 @@
 			<h3 class="text-center mb-4">Berita dan Informasi</h3>
 
 			<div class="row">
-				<!-- Gaya untuk mengatur gambar seragam -->
+				<!-- Gaya tambahan untuk kartu -->
 				<style>
+					.card {
+						border-radius: 15px;
+						background-color: #fff;
+						box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+						overflow: hidden;
+					}
+
 					.card-img-top {
 						width: 100%;
-						/* Memastikan gambar menyesuaikan lebar kartu */
-						height: 300px;
-						/* Memberikan tinggi tetap */
+						height: 200px;
 						object-fit: cover;
-						/* Memotong gambar agar tetap sesuai aspek rasio */
 					}
 				</style>
 
@@ -101,6 +105,7 @@
 					</div>
 				</div>
 			</div>
+
 
 			<div class="text-center mt-4">
 				<button class="btn btn-outline-danger">Selengkapnya</button>
@@ -140,15 +145,30 @@
 	</main>
 
 	<!-- Footer -->
-	<footer class="bg-danger text-center py-4 mt-5">
-		<p>Laporan segera mungkin masalah anda</p>
-		<div class="d-flex justify-content-center mb-3">
-			<a href="#" class="me-3"><img src="icon_facebook.png" alt="Facebook" style="height: 24px;"></a>
-			<a href="#" class="me-3"><img src="icon_twitter.png" alt="Twitter" style="height: 24px;"></a>
-			<a href="#"><img src="icon_instagram.png" alt="Instagram" style="height: 24px;"></a>
+	<footer class="bg-danger text-white py-4 mt-5">
+		<div class="container">
+			<div class="d-flex justify-content-between align-items-center">
+				<!-- Logo di kiri -->
+				<div>
+					<img src="./page/img/Lapor.npg" alt="Logo" style="height: 70px;">
+				</div>
+
+
+				<!-- Ikon media sosial di kanan -->
+				<div>
+					<a href="#" class="me-3"><img src="icon_facebook.png" alt="Facebook" style="height: 24px;"></a>
+					<a href="#" class="me-3"><img src="icon_twitter.png" alt="Twitter" style="height: 24px;"></a>
+					<a href="#"><img src="icon_instagram.png" alt="Instagram" style="height: 24px;"></a>
+				</div>
+			</div>
+			<!-- Teks di tengah -->
+			<div class="text-center mt-3">
+				<p>Laporan segera mungkin masalah anda</p>
+				<p>&copy; 2025 Kelompok 2</p>
+			</div>
 		</div>
-		<p>&copy; 2025 Kelompok 2</p>
 	</footer>
+
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
