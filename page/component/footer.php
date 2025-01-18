@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <!-- Logo di kiri -->
             <div>
-                <img src="./page/img/Lapor.npg" alt="Logo" style="height: 70px;">
+                <img src="./page/img/Lapor.png" alt="Logo" style="height: 70px;">
             </div>
 
 
@@ -11,7 +11,7 @@
             <div>
                 <a href="#" class="me-3"><img src="icon_facebook.png" alt="Facebook" style="height: 24px;"></a>
                 <a href="#" class="me-3"><img src="icon_twitter.png" alt="Twitter" style="height: 24px;"></a>
-                <a href="#"><img src="icon_instagram.png" alt="Instagram" style="height: 24px;"></a>
+                <a href="#"><img src="./page/img/instagram.png" alt="Instagram" style="height: 50px;"></a>
             </div>
         </div>
         <!-- Teks di tengah -->
