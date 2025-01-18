@@ -25,7 +25,7 @@
     <div class="col-md-6 text-center">
     <img src="../page/img/login.png" alt="Lapor" class="img-fluid" style="height: 80%;">
     </div>
-    <div class="col-md-6 text-center" >
+    <div class="col-md-6 " >
         <p ><h2>Silahkan masuk terlebih dahulu untuk melapor</h2></p>
         <form action="../process/process_login.php" method="POST">
             <div class="form-group"> <label for="email">Email:</label> <input type="email" class="form-control"
