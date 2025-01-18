@@ -1,5 +1,5 @@
 <?php
-require_once('../koneksi.php');
+require_once('koneksi.php');
 
 // Ambil input dari form
 $email = $_POST['email'];
@@ -27,17 +27,17 @@ if ($result->num_rows > 0) {
 
             // Redirect berdasarkan role
             if ($row['role_id'] == '1') {
-                header("Location:../Admin/adminDashboard.php");
+                header("Location:adminDashboard");
                 exit();
             } elseif ($row['role_id'] == '2') {
-                header("Location:../page/lapor.php");
+                header("Location:lapor");
                 exit();
             }
         } else {
             echo '
             <script>
               alert("Password salah");
-              window.location.href="../loginMultiuser/login.php";    
+              window.location.href="login";    
             </script>
             ';
         }
@@ -50,17 +50,17 @@ if ($result->num_rows > 0) {
 
             // Redirect berdasarkan role
             if ($row['role_id'] == '1') {
-                header("Location:../Admin/adminDashboard.php");
+                header("Location:adminDashboard");
                 exit();
             } elseif ($row['role_id'] == '2') {
-                header("Location:../page/lapor.php");
+                header("Location:lapor");
                 exit();
             }
         } else {
             echo '
             <script>
               alert("Password salah");
-              window.location.href="../loginMultiuser/login.php";    
+              window.location.href="login";    
             </script>
             ';
         }
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
     echo '
     <script>
       alert("Email tidak ditemukan");
-      window.location.href="../loginMultiuser/login.php";    
+      window.location.href="login";    
     </script>
     ';
 }

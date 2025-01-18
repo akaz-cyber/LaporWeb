@@ -1,15 +1,14 @@
 <?php
+require_once('koneksi.php');
+require_once('helper.php');
+
 session_start();
 if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
-    header("Location:../loginMultiuser/login.php");
+    header("Location:login");
     exit;
 }
 
 ?>
-
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,7 +28,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
   <h1>Selamat Datang, di lapor <?php echo $_SESSION['username']; ?>!</h1>
 
 
-<form method="POST" action="../process/process_lapor_user.php">
+<form method="POST" action="process_lapor_user">
 <label>Jenis Pengaduan:</label><br>
 <select name="jenis_laporan" required>
             <option value="Pengaduan">Pengaduan</option>
@@ -56,7 +55,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
 
 
 <?php
-require_once('../koneksi.php');
+require_once('koneksi.php');
 
 $id_user = $_SESSION['id_user'];
 

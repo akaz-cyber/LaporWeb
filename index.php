@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once('koneksi.php');
+require_once('helper.php');
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -23,7 +30,7 @@
       <div class="row align-items-center">
         <!-- Kolom untuk gambar -->
         <div class="col-md-6 text-center">
-          <img src="./page/img/Lapor.png" alt="Lapor" class="img-fluid" style="height: 80%;">
+          <img src="/LaporWeb/page/img/Lapor.png" alt="Lapor" class="img-fluid" style="height: 80%;">
         </div>
         <!-- Kolom untuk teks -->
         <div class="col-md-6">
@@ -58,7 +65,7 @@
 
         <div class="col-md-4">
           <div class="card">
-            <img src="./page/img/eminem.jpg" class="card-img-top" alt="Berita 1">
+            <img src="/LaporWeb/page/img/eminem.jpg" class="card-img-top" alt="Berita 1">
             <div class="card-body">
               <h5 class="card-title">Judul Berita 1</h5>
               <p class="card-text">Lorem Ipsum is simply dummy text of the printing.</p>
@@ -67,7 +74,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="./page/img/news2.1.jpeg" class="card-img-top" alt="Berita 2">
+            <img src="/LaporWeb/page/img/news2.1.jpeg" class="card-img-top" alt="Berita 2">
             <div class="card-body">
               <h5 class="card-title">Judul Berita 2</h5>
               <p class="card-text">Lorem Ipsum is simply dummy text of the printing.</p>
@@ -76,7 +83,7 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="./page/img/news3.jpg" class="card-img-top" alt="Berita 3">
+            <img src="/LaporWeb/page/img/news3.jpg" class="card-img-top" alt="Berita 3">
             <div class="card-body">
               <h5 class="card-title">Judul Berita 3</h5>
               <p class="card-text">Lorem Ipsum is simply dummy text of the printing.</p>
@@ -98,14 +105,14 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="d-flex justify-content-center">
-              <img src="./page/img/news3.jpg" alt="User" class="rounded-circle" style="height: 80px;">
+              <img src="/LaporWeb/page/img/news3.jpg" alt="User" class="rounded-circle" style="height: 80px;">
             </div>
             <h5 class="mt-3">John Doe</h5>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </div>
           <div class="carousel-item">
             <div class="d-flex justify-content-center">
-              <img src="./page/img/news3.jpg" alt="User" class="rounded-circle" style="height: 80px;">
+              <img src="/LaporWeb/page/img/news3.jpg" alt="User" class="rounded-circle" style="height: 80px;">
             </div>
             <h5 class="mt-3">Jane Smith</h5>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>

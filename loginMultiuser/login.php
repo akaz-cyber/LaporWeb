@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- monggo front end na -->
 <html>
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,20 +15,19 @@
 </head>
 
 <body>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <a class="nav-link mt-3 " href="../index.php"  style="width: 7%;"><img src="../page/img/back.png" alt="Lapor" class="img-fluid"></a>
+        <a class="nav-link mt-3 " href="/LaporWeb/"  style="width: 7%;"><img src="/LaporWeb/page/img/back.png" alt="Lapor" class="img-fluid"></a>
 	<main class="container mt-5">
     
     <div class="row align-items-center">
     <div class="col-md-6 text-center">
-    <img src="../page/img/login.jpg" alt="Lapor" class="img-fluid" style="height: 100%;">
+    <img src="/LaporWeb/page/img/login.jpg" alt="Lapor" class="img-fluid" style="height: 100%;">
     </div>
     <div class="col-md-6 " >
         <p ><h2>Silahkan masuk terlebih dahulu untuk melapor</h2></p>
-        <form action="../process/process_login.php" method="POST">
+        <form action="/LaporWeb/process_login" method="POST">
             <div class="form-group"> <label for="email">Email:</label> <input type="email" class="form-control"
                     id="email" name="email" required> </div>
             <div class="form-group"> <label for="password">Kata Sandi:</label> <input type="password" class="form-control"
@@ -39,7 +37,7 @@
     </div></div>    
 </main>
   
-    <?php include '../page/component/footer.php'; ?>
+    <?php include 'page/component/footer.php'; ?>
 </body>
 
 </html>

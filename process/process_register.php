@@ -1,5 +1,5 @@
 <?php
-require_once('../koneksi.php');
+require_once('koneksi.php');
 
 // Ambil input dari form
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -12,13 +12,16 @@ $penyandang_disabilitas = $_POST['penyandang_disabilitas'];
 $jenis_kelamin = $_POST['jenis_kelamin'];
 $pekerjaan = filter_var($_POST['pekerjaan'], FILTER_SANITIZE_STRING);
 $tanggal_lahir = $_POST['tanggal_lahir'];
-$alamat = filter_var($_POST['alamat'], FILTER_SANITIZE_STRING);
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
 // Validasi input
 if ($password !== $confirm_password) {
-    die("Password dan konfirmasi password tidak cocok!");
+    echo "<script>
+              alert('Password dan konfirmasi password tidak cocok!');
+              window.location.href='register';    
+          </script>";
+    exit();
 }
 
 // Hash password
@@ -27,19 +30,43 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 // Set role_id default
 $role_id = 2; // Default untuk user biasa
 
-// Query untuk menyimpan data
-$query = "INSERT INTO Users (email, username, nik, nama_lengkap, tempat_tinggal, no_telp, penyandang_disabilitas, jenis_kelamin, pekerjaan, tanggal_lahir, alamat, password, role_id) 
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+// Periksa apakah email sudah ada
+$emailCheckQuery = "SELECT email FROM Users WHERE email = ?";
+$emailCheckStmt = $conn->prepare($emailCheckQuery);
+$emailCheckStmt->bind_param("s", $email);
+$emailCheckStmt->execute();
+$emailCheckStmt->store_result();
+
+if ($emailCheckStmt->num_rows > 0) {
+    echo "<script>
+              alert('Email sudah terdaftar!');
+              window.location.href='register';    
+          </script>";
+    $emailCheckStmt->close();
+    $conn->close();
+    exit();
+}
+
+// Jika email belum terdaftar, lanjutkan dengan menyimpan data
+$query = "INSERT INTO Users (email, username, nik, nama_lengkap, tempat_tinggal, no_telp, penyandang_disabilitas, jenis_kelamin, pekerjaan, tanggal_lahir, password, role_id) 
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("ssssssssssssi", $email, $username, $nik, $nama_lengkap, $tempat_tinggal, $no_telp, $penyandang_disabilitas, $jenis_kelamin, $pekerjaan, $tanggal_lahir, $alamat, $hashedPassword, $role_id);
+$stmt->bind_param("sssssssssssi", $email, $username, $nik, $nama_lengkap, $tempat_tinggal, $no_telp, $penyandang_disabilitas, $jenis_kelamin, $pekerjaan, $tanggal_lahir, $hashedPassword, $role_id);
 
 if ($stmt->execute()) {
-    echo "Registrasi berhasil! <a href='../loginMultiuser/login.php'>Login di sini</a>";
+    echo "<script>
+              alert('Registrasi berhasil!');
+              window.location.href='login';    
+          </script>";
 } else {
-    echo "Registrasi gagal: " . $stmt->error;
+    echo "<script>
+              alert('Registrasi gagal: " . addslashes($stmt->error) . "');
+              window.location.href='register';    
+          </script>";
 }
 
 // Tutup koneksi
+$emailCheckStmt->close();
 $stmt->close();
 $conn->close();
 ?>

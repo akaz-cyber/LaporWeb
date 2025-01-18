@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Form Registrasi</h2>
-    <form action="../process/process_register.php" method="POST">
+    <form action="process_register" method="POST">
         <label>Email:</label>
         <input type="email" name="email" required><br><br>
 
@@ -20,7 +20,7 @@
         <label>Nama Lengkap:</label>
         <input type="text" name="nama_lengkap" required><br><br>
 
-        <label>Tempat Tinggal:</label>
+        <label>Tempat Tinggal saat ini:</label>
         <input type="text" name="tempat_tinggal" required><br><br>
 
         <label>Nomor Telepon:</label>
@@ -43,9 +43,6 @@
 
         <label>Tanggal Lahir:</label>
         <input type="date" name="tanggal_lahir" required><br><br>
-
-        <label>Alamat:</label>
-        <textarea name="alamat" rows="3" required></textarea><br><br>
 
         <label>Password:</label>
         <input type="password" name="password" required><br><br>

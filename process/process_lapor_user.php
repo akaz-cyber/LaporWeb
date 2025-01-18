@@ -1,6 +1,6 @@
 <?php
 // Koneksi ke database
-require_once('../koneksi.php');
+require_once('koneksi.php');
 
 // mengambil session user yang sudah login 
 session_start();
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo'
     <script>
       alert("Laporan berhasil ditambahkan");
-       window.location.href="../page/lapor.php";    
+       window.location.href="lapor";    
       </script>
     ';
 } else {
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo'
     <script>
       alert("gagal menambahkan laporan");
-       window.location.href="../page/lapor.php";    
+       window.location.href="lapor";    
       </script>
     ';
 }
