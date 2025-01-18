@@ -16,14 +16,16 @@
 </head>
 
 <body>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-
+        <a class="nav-link mt-3 " href="../index.php"  style="width: 7%;"><img src="../page/img/back.png" alt="Lapor" class="img-fluid"></a>
 	<main class="container mt-5">
+    
     <div class="row align-items-center">
     <div class="col-md-6 text-center">
-    <img src="../page/img/login.png" alt="Lapor" class="img-fluid" style="height: 80%;">
+    <img src="../page/img/login.jpg" alt="Lapor" class="img-fluid" style="height: 100%;">
     </div>
     <div class="col-md-6 " >
         <p ><h2>Silahkan masuk terlebih dahulu untuk melapor</h2></p>
