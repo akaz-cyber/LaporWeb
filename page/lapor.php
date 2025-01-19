@@ -61,55 +61,50 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
         <a href="?filter=all" class="btn <?php echo ($filter == 'all') ? 'btn-primary' : 'btn-light'; ?> me-2">Semua Laporan</a>
         <a href="?filter=my" class="btn <?php echo ($filter == 'my') ? 'btn-primary' : 'btn-light'; ?>">Laporan Saya</a>
       </div>
-  </div>
-  
-  <?php
-  require_once('koneksi.php');
+    </div>
 
-
-  $id_user = $_SESSION['id_user'];
-
-
-  $filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
-
-
-  if ($filter == 'my') {
-    // Menampilkan laporan milik user yang statusnya Pending atau Ditolak, diurutkan dari yang terbaru
-    $sql = "SELECT * FROM post_lapor 
-            WHERE id_user = $id_user AND (status = 'Pending' OR status = 'Ditolak') 
-            ORDER BY id_laporan DESC";
-} else {
-    // Menampilkan semua laporan dengan status Disetujui, diurutkan dari yang terbaru
-    $sql = "SELECT * FROM post_lapor 
-            WHERE status = 'Disetujui' 
-            ORDER BY id_laporan DESC";
-}
-
-
-  $result = $conn->query($sql);
-
-  ?>
-
-
-<div class="container">
-    <h3>Daftar Laporan</h3>
     <?php
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "<div class='card mb-3'>";
-            echo "<div class='card-body'>";
-            echo "<h5 class='card-title'>" . htmlspecialchars($row['judul_laporan']) . "</h5>";
-            echo "<p class='card-text'>" . nl2br(htmlspecialchars($row['isi_laporan'])) . "</p>";
-            echo "<p class='text-muted'>Status: " . $row['status'] . "</p>";
-            echo "<p class='text-muted'>Tanggal Kejadian: " . date('d M Y', strtotime($row['tanggal_kejadian'])) . "</p>";
-            echo "</div>";
-            echo "</div>";
-        }
+    require_once('koneksi.php');
+    $id_user = $_SESSION['id_user'];
+    $filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
+    if ($filter == 'my') {
+      // Menampilkan laporan milik user yang statusnya Pending atau Ditolak, diurutkan dari yang terbaru
+      $sql = "SELECT * FROM post_lapor 
+        WHERE id_user = $id_user 
+        AND (status = 'Pending' OR status = 'Ditolak' OR status = 'Disetujui' OR status = 'Selesai') 
+        ORDER BY id_laporan DESC";
     } else {
-        echo "<p>Tidak ada laporan untuk ditampilkan.</p>";
+      // Menampilkan semua laporan dengan status Disetujui, diurutkan dari yang terbaru
+      $sql = "SELECT * FROM post_lapor 
+            WHERE status = 'Disetujui' OR status = 'Selesai'
+            ORDER BY id_laporan DESC";
     }
+
+
+    $result = $conn->query($sql);
+
     ?>
-</div>
+
+
+    <div class="container">
+      <h3>Daftar Laporan</h3>
+      <?php
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+          echo "<div class='card mb-3'>";
+          echo "<div class='card-body'>";
+          echo "<h5 class='card-title'>" . htmlspecialchars($row['judul_laporan']) . "</h5>";
+          echo "<p class='card-text'>" . nl2br(htmlspecialchars($row['isi_laporan'])) . "</p>";
+          echo "<p class='text-muted'>Status: " . $row['status'] . "</p>";
+          echo "<p class='text-muted'>Tanggal Kejadian: " . date('d M Y', strtotime($row['tanggal_kejadian'])) . "</p>";
+          echo "</div>";
+          echo "</div>";
+        }
+      } else {
+        echo "<p>Tidak ada laporan untuk ditampilkan.</p>";
+      }
+      ?>
+    </div>
 
 
   </div>
