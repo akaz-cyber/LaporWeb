@@ -35,7 +35,7 @@
 
 
 </div>
-    <form action="../process/process_register.php" method="POST" class="mt-5">
+    <form action="process_register" method="POST" class="mt-5">
     <!-- container full di form -->
     <div class="row  mb-6">
         <div class="col-md-5 ps-5">
