@@ -20,5 +20,6 @@ $username = $_SESSION['username'];
     <h1>Selamat Datang, Admin <?php echo htmlspecialchars($username); ?>!</h1>
     <a href="logout">Logout</a> <br> <br>
     <a href="adminLapor">Lapor</a>
+    <a href="kelolauser">Kelola user</a>
 </body>
 </html>

@@ -30,12 +30,24 @@ if (isset($_GET['url'])) {
         case 'process_lapor_user':
             require 'process/process_lapor_user.php';
             break;
-            case 'register':
-                require 'loginMultiuser/register.php';
+        case 'register':
+            require 'loginMultiuser/register.php';
+            break;
+        case 'process_register':
+            require 'process/process_register.php';
+            break;
+        case 'kelolauser':
+            require 'Admin/kelolauser.php';
+            break;
+        case 'tambah_userbyadmin':
+            require 'process/process_tambah_userbyadmin.php';
+            break;
+        case 'edit_userbyadmin':
+            require 'process/process_edituserbyadmin.php';
+            break;
+            case 'delete_byadmin':
+                require 'process/process_deleteuserbyadmin.php';
                 break;
-                case 'process_register':
-                    require 'process/process_register.php';
-                    break;
         default:
             http_response_code(404);
             echo "404 - Halaman tidak ditemukan";
