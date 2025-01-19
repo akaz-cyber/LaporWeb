@@ -54,21 +54,64 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
 </form>
 
 
+
+
+<<div class="container mt-3">
+    <h2>Filter Laporan</h2>
+    <div class="d-flex mb-3">
+        <a href="?filter=all" class="btn <?php echo ($filter == 'all') ? 'btn-primary' : 'btn-light'; ?> me-2">Semua Laporan</a>
+        <a href="?filter=my" class="btn <?php echo ($filter == 'my') ? 'btn-primary' : 'btn-light'; ?>">Laporan Saya</a>
+    </div>
+</div>
+
+
+
+
 <?php
 require_once('koneksi.php');
 
+// Ambil id_user dari sesi
 $id_user = $_SESSION['id_user'];
 
+// Ambil parameter filter
+$filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 
-$sql = "SELECT * FROM post_lapor WHERE id_user = $id_user";
+// Tentukan query berdasarkan filter
+if ($filter == 'my') {
+    // Menampilkan laporan milik user yang statusnya Pending atau Ditolak
+    $sql = "SELECT * FROM post_lapor 
+            WHERE id_user = $id_user AND (status = 'Pending' OR status = 'Ditolak')";
+} else {
+    // Menampilkan semua laporan dengan status Disetujui
+    $sql = "SELECT * FROM post_lapor 
+            WHERE status = 'Disetujui'";
+}
+
+// Eksekusi query
 $result = $conn->query($sql);
 
-while ($row = $result->fetch_assoc()) {
-    echo "Judul: " . $row['judul_laporan'] . "<br>";
-    echo "Isi: " . $row['isi_laporan'] . "<br>";
-    echo "Status: " . $row['status'] . "<br><hr>";
-}
 ?>
+
+
+<div class="container">
+    <h3>Daftar Laporan</h3>
+    <?php
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='card mb-3'>";
+            echo "<div class='card-body'>";
+            echo "<h5 class='card-title'>" . htmlspecialchars($row['judul_laporan']) . "</h5>";
+            echo "<p class='card-text'>" . nl2br(htmlspecialchars($row['isi_laporan'])) . "</p>";
+            echo "<p class='text-muted'>Status: " . $row['status'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+    } else {
+        echo "<p>Tidak ada laporan untuk ditampilkan.</p>";
+    }
+    ?>
+</div>
+
 
   </div>
 
