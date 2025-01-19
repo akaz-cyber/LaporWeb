@@ -59,7 +59,7 @@
 
         <label>Penyandang Disabilitas:</label><br>
         <select name="penyandang_disabilitas" required>
-            <option value="iya">Iya</option>
+            <option value="ya">Iya</option>
             <option value="tidak">Tidak</option>
         </select><br><br>
 
