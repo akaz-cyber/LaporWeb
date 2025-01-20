@@ -11,7 +11,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '1') {
 require_once('koneksi.php');
 
 // Ambil laporan dengan status Pending
-$sql = "SELECT * FROM post_lapor WHERE status IN ('Pending', 'Disetujui', 'Selesai')  ORDER BY id_laporan DESC";
+$sql = "SELECT * FROM post_lapor WHERE status IN ('Pending', 'Disetujui', 'Selesai', 'Ditolak')  ORDER BY id_laporan DESC";
 $result = $conn->query($sql);
 ?>
 
@@ -35,6 +35,7 @@ $result = $conn->query($sql);
                 <div class="card-body">
                     <h5 class="card-title"><?= htmlspecialchars($row['judul_laporan']); ?></h5>
                     <p class="card-text"><?= htmlspecialchars($row['isi_laporan']); ?></p>
+                    <p class="card-text"><?= htmlspecialchars($row['status']); ?></p>
 
                     <?php if ($row['status'] == 'Pending') { ?>
                         <a href="process_terima_dan_tolak?action=accept&id=<?= $row['id_laporan']; ?>" class="btn btn-success">Terima</a>
@@ -42,7 +43,7 @@ $result = $conn->query($sql);
                             onclick="setRejectId(<?= $row['id_laporan']; ?>)">Tolak</button>
                     <?php } elseif ($row['status'] == 'Disetujui') { ?>
                         <a href="process_terima_dan_tolak?action=acceptreport&id=<?= $row['id_laporan']; ?>" class="btn btn-success">Selesaikan</a>
-                    <?php } elseif ($row['status'] == 'Selesai') { ?>
+                    <?php } elseif ($row['status'] && 'Selesai' && 'Ditolak'  ) { ?>
                         <a href="process_terima_dan_tolak?action=delete&id=<?= $row['id_laporan']; ?>"
                             class="btn btn-danger"
                             onclick="return confirm('Apakah Anda yakin ingin menghapus laporan ini?')">Hapus laporan</a>

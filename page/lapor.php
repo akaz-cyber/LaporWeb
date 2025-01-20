@@ -96,7 +96,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
           echo "<h5 class='card-title'>" . htmlspecialchars($row['judul_laporan']) . "</h5>";
           echo "<p class='card-text'>" . nl2br(htmlspecialchars($row['isi_laporan'])) . "</p>";
           echo "<p class='text-muted'>Status: " . $row['status'] . "</p>";
-          echo "<p class='text-muted'>Tanggal Kejadian: " . date('d M Y', strtotime($row['tanggal_kejadian'])) . "</p>";
+          echo "<p class='text-muted'>Tanggal dibuat: " . date('d M Y', strtotime($row['dibuat_kapan'])) . "</p>";
           echo "</div>";
           echo "</div>";
         }
