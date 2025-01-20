@@ -57,15 +57,16 @@
         <label>Nomor Telepon:</label><br>
         <input type="text" name="no_telp" maxlength="15" required><br><br>
 
-        <label>Penyandang Disabilitas:</label><br>
-        <select name="penyandang_disabilitas" required>
-            <option value="ya">Iya</option>
-            <option value="tidak">Tidak</option>
-        </select><br><br>
 
         </div>  
 <!-- ------------------------------------------------------ -->
  <div class="col-md-6 ps-5 ">
+    
+ <label>Penyandang Disabilitas:</label><br>
+        <select name="penyandang_disabilitas" required>
+            <option value="ya">Iya</option>
+            <option value="tidak">Tidak</option>
+        </select><br><br>
  <label>Jenis Kelamin:</label><br>
         <select name="jenis_kelamin" required>
             <option value="Laki-laki">Laki-laki</option>
@@ -77,8 +78,8 @@
         <label>Tanggal Lahir:</label><br>
         <input type="date" name="tanggal_lahir" required><br><br>
 
-        <label>Alamat:</label><br>
-        <textarea name="alamat" rows="3" class="w-100" required></textarea><br><br>
+        <!-- <label>Alamat:</label><br>
+        <textarea name="alamat" rows="3" class="w-100" required></textarea><br><br> -->
 
         <label>Password:</label><br>
         <input type="password" name="password" required><br><br>
