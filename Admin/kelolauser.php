@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+// Cek apakah user sudah login dan apakah memiliki role 'Admin'
+if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '1') {
+    header("Location:login");
+    exit;
+}
+
 // Memanggil file get_users.php untuk mengambil data users
 $users = require_once('process/process_getuser.php');
 ?>
@@ -41,8 +50,9 @@ $users = require_once('process/process_getuser.php');
                                     <th>Tempat Tinggal saat ini</th>
                                     <th>Nomor Telepon</th>
                                     <th>Tanggal Daftar</th>
-                                    <th>Tanggal Daftar</th>
-                                    <th>Tanggal Daftar</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>penyandang disabilitas </th>
+                                    <th>alamat </th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -64,6 +74,7 @@ $users = require_once('process/process_getuser.php');
                                         echo "<td>{$user['dibuat_kapan']}</td>";
                                         echo "<td>{$user['tanggal_lahir']}</td>";
                                         echo "<td>{$user['penyandang_disabilitas']}</td>";
+                                        echo "<td>{$user['alamat']}</td>";
                                         echo "<td>
                                         <button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#editUserModal' data-id='{$user['id_user']}'>Edit</button>
                                       <button class='btn btn-danger btn-sm' data-id='{$user['id_user']}' onclick='confirmDelete({$user['id_user']})'>Hapus</button>
