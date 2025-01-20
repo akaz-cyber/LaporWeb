@@ -9,47 +9,15 @@ $users = require_once('process/process_getuser.php');
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="Untitled-1.css">
-</head>
+<?php include 'Admin/componen/adminHeader.php'; ?>
 
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
-        <div class="sidebar bg-danger text-white d-flex flex-column">
-            <div class="text-center py-4">
-                <img src="logo.png" alt="Logo" class="img-fluid mb-2" style="width: 50px;">
-                <h5>LAPOR</h5>
-            </div>
-            <ul class="nav flex-column px-3">
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">Dashboard</a>
-                </li>
-                <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">Laporan</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white active">Users</a>
-                </li>
-            </ul>
-            <a href="#" class="btn btn-light mt-auto mx-3 mb-3 text-danger">
-                <img src="logout-icon.png" alt="Logout" class="me-2" style="width: 20px;"> Keluar
-            </a>
-        </div>
+
+        <?php include 'Admin/componen/adminSidebar.php'; ?>
 
         <!-- Main Content -->
-
-
         <div class="main-content w-100">
             <div class="container-fluid p-3">
                 <!-- Header -->
@@ -294,18 +262,18 @@ $users = require_once('process/process_getuser.php');
 
     <script>
         const editUserModal = document.getElementById('editUserModal');
-        editUserModal.addEventListener('show.bs.modal', function (event) {
+        editUserModal.addEventListener('show.bs.modal', function(event) {
             const button = event.relatedTarget;
             const userId = button.getAttribute('data-id');
             const row = button.closest('tr');
 
             // Ambil data dari tabel
             const namaLengkap = row.cells[2].textContent.trim(); // Nama Lengkap
-            const username = row.cells[1].textContent.trim();    // Username
-            const email = row.cells[3].textContent.trim();       // Email
+            const username = row.cells[1].textContent.trim(); // Username
+            const email = row.cells[3].textContent.trim(); // Email
             const tempatTinggal = row.cells[4].textContent.trim(); // Tempat Tinggal
-            const noTelp = row.cells[5].textContent.trim();      // No Telp
-            const tanggalLahir = row.cells[7].textContent.trim(); 
+            const noTelp = row.cells[5].textContent.trim(); // No Telp
+            const tanggalLahir = row.cells[7].textContent.trim();
             const penyandangDisabilitas = row.cells[8].textContent.trim(); // Tanggal Lahir (pastikan kolom tabel sesuai)
 
             // Set nilai ke dalam form
@@ -315,10 +283,9 @@ $users = require_once('process/process_getuser.php');
             editUserModal.querySelector('#editNoTelp').value = noTelp;
             editUserModal.querySelector('#editEmail').value = email;
             editUserModal.querySelector('#editUsername').value = username;
-            editUserModal.querySelector('#editTanggalLahir').value = tanggalLahir; 
+            editUserModal.querySelector('#editTanggalLahir').value = tanggalLahir;
             editUserModal.querySelector('#editPenyandangDisabilitas').value = penyandangDisabilitas; // Atur tanggal lahir
         });
-
     </script>
 
     <script>
