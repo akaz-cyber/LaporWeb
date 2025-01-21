@@ -198,7 +198,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
           echo "<p class='card-text'> Instansi_tujuan :" . nl2br(htmlspecialchars($row['instansi_tujuan'])) . "</p>";
           echo "<p class='card-text'> isi laporan :" . nl2br(htmlspecialchars($row['isi_laporan'])) . "</p>";
 
-          echo "<p class='text-muted'>Tanggal Kejadian: " . date('d M Y', strtotime($row['tanggal_kejadian'])) . "</p>";
+          echo "<p class='text-muted'>Tanggal dibuat: " . date('d M Y', strtotime($row['dibuat_kapan'])) . "</p>";
           echo "</div>";
           echo "</div>";
         }

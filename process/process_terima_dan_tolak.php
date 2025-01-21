@@ -23,7 +23,7 @@ if (isset($_GET['action'])) {
 
     } elseif ($_GET['action'] == 'delete') {
         $sql = "DELETE FROM post_lapor WHERE id_laporan = $id_laporan";
-    $message = "Laporan berhasil didelete";
+    $message = "Laporan berhasil dihapus";
     }
     
     
