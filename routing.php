@@ -28,7 +28,7 @@ if (isset($_GET['url'])) {
             require 'process/process_terima_dan_tolak.php';
             break;
         case 'process_lapor_user':
-            require 'process/process_lapor_user.php';
+            require 'process/process_lapor_ut5874e   ser.php';
             break;
         case 'register':
             require 'loginMultiuser/register.php';
@@ -45,9 +45,12 @@ if (isset($_GET['url'])) {
         case 'edit_userbyadmin':
             require 'process/process_edituserbyadmin.php';
             break;
-            case 'delete_byadmin':
-                require 'process/process_deleteuserbyadmin.php';
-                break;
+        case 'delete_byadmin':
+            require 'process/process_deleteuserbyadmin.php';
+            break;
+        case 'artikel':
+            require 'page/artikel.php';
+            break;
         default:
             http_response_code(404);
             echo "404 - Halaman tidak ditemukan";

@@ -36,7 +36,8 @@ require_once('helper.php');
         <div class="col-md-6">
           <h2>Laporan Masalah Anda, Kami Siap Mendengar</h2>
           <p>Sampaikan keluhan atau masalah Anda dengan mudah dan cepat melalui platform kami.</p>
-          <button class="btn btn-danger btn-lg">LAPOR</button>
+          <a href="/LaporWeb/login" class="btn btn-danger btn-lg">LAPOR</a>
+          
         </div>
       </div>
     </section>

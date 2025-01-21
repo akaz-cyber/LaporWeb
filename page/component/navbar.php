@@ -15,10 +15,11 @@
       <!-- Menu Kiri -->
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo $base_url; ?>lapor">Lapor</a>
+          <!-- <a class="nav-link active" aria-current="page" href="<?php echo $base_url; ?>lapor">Lapor</a> -->
+          <a href="/LaporWeb/lapor" class="nav-link" >lapor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Artikel</a>
+          <a href="/LaporWeb/artikel" class="nav-link" >Artikel</a>
         </li>
       </ul>
 
