@@ -28,7 +28,7 @@ if (isset($_GET['url'])) {
             require 'process/process_terima_dan_tolak.php';
             break;
         case 'process_lapor_user':
-            require 'process/process_lapor_ut5874e   ser.php';
+            require 'process/process_lapor_user.php';
             break;
         case 'register':
             require 'loginMultiuser/register.php';
