@@ -1,0 +1,28 @@
+.card-custom {
+    background-color: #20c997;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card-custom .card-icon {
+    font-size: 50px;
+    opacity: 0.8;
+}
+
+.card-custom .btn-more-info {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+}
+
+.card-custom .btn-more-info:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-link.active {
+    border-radius: 30px;
+    background-color: white !important;
+    color: black !important;
+}
+

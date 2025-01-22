@@ -5,8 +5,6 @@
             <div>
                 <img src="./page/img/Lapor.png" alt="Logo" style="height: 70px;">
             </div>
-
-
             <!-- Ikon media sosial di kanan -->
             <div>
                 <!-- <a href="#" class="me-3"><img src="icon_facebook.png" alt="Facebook" style="height: 24px;"></a>

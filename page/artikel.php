@@ -1,3 +1,12 @@
+<?php
+session_start();
+require_once('koneksi.php');
+require_once('helper.php');
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,43 +16,7 @@
 	<title>Berita dan Informasi</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-	<style>
-		.img-main {
-			object-fit: cover;
-			width: 100%;
-			height: 300px;
-		}
-
-		.card-thumbnail {
-			border: none;
-		}
-
-		.card-thumbnail img {
-			object-fit: cover;
-			height: 80px;
-			width: 100px;
-		}
-
-		.btn-red {
-			background-color: #ff4d4d;
-			color: white;
-			border: none;
-			font-size: 0.9rem;
-		}
-
-		.btn-red:hover {
-			background-color: #ff1a1a;
-			color: white;
-		}
-
-		.text-truncate-2 {
-			overflow: hidden;
-			text-overflow: ellipsis;
-			display: -webkit-box;
-			-webkit-line-clamp: 2;
-			-webkit-box-orient: vertical;
-		}
-	</style>
+	<link rel="stylesheet" href="/LaporWeb/page/css/artikle.css">
 	
 </head>
 
