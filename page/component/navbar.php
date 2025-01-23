@@ -21,6 +21,12 @@
         <li class="nav-item">
           <a href="/LaporWeb/artikel" class="nav-link" >Artikel</a>
         </li>
+        <?php if (isset($_SESSION['id_user'])): ?>
+        <!-- Link profile hanya ditampilkan jika user sudah login -->
+        <li class="nav-item">
+          <a href="profile" class="nav-link">Profile</a>
+        </li>
+        <?php endif; ?>
       </ul>
 
       <!-- Menu Kanan -->

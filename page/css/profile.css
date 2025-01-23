@@ -1,0 +1,110 @@
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-img {
+    width: 200px; /* Lebar gambar diperbesar */
+    height: 200px; /* Tinggi gambar diperbesar */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    margin-right: 20px;
+}
+
+.profile-name h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-name p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Edit Button */
+.card .edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card .edit-btn:hover {
+    background-color: #e56740;
+}
+
+/* Card Container */
+.card {
+    position: relative;
+}
+
+/* Data Row */
+.data-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.data-row span:first-child {
+    width: 200px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.data-row span.separator {
+    padding-right: 10px;
+}
+
+.data-row span:last-child {
+    flex: 1;
+    text-align: left;
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .data-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .data-row span:first-child {
+        text-align: left;
+        padding-right: 0;
+    }
+
+    .data-row span.separator {
+        display: none;
+    }
+
+    .data-row span:last-child {
+        text-align: left;
+    }
+}

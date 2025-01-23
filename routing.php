@@ -51,6 +51,12 @@ if (isset($_GET['url'])) {
         case 'artikel':
             require 'page/artikel.php';
             break;
+        case 'profile':
+            require 'page/profile.php';
+            break;
+        case 'editprofile':
+            require 'process/process_editprofile.php';
+            break;
         default:
             http_response_code(404);
             echo "404 - Halaman tidak ditemukan";
