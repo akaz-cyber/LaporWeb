@@ -1,3 +1,11 @@
+<?php
+session_start();
+require_once('koneksi.php');
+require_once('helper.php');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +19,12 @@
 
 <?php include 'component/navbar.php'; ?>
 <div class="container my-5">
-    <!-- Gambar Utama -->
     <div class="row">
     <div class="col-2">
        
         </div>
         <div class="col-8">
-        <div class="ratio ratio-16x9 d-flex justify-content-center align-items-center" style="max-width: 100%;">
+        <div class="ratio ratio-16x9 d-flex justify-content-center align-items-center mx-100">
                 <img src="/LaporWeb/page/img/image.png" alt="Gambar Berita" class="img-fluid rounded shadow-sm ">
             </div>
         </div>
@@ -26,7 +33,6 @@
         </div>
     </div>
 
-    <!-- Judul Berita -->
     <div class="row mt-3">
         <div class="col-12">
             <h2 class="fw-bold">soal janji prabowo dirikan 300 fakultas kedokteran, begini kata kemendikti</h2>
@@ -36,7 +42,6 @@
         </div>
     </div>
 
-    <!-- Konten Berita -->
     <div class="row">
         <div class="col-12">
             <p>
