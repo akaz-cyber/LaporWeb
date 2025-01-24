@@ -51,6 +51,9 @@ if (isset($_GET['url'])) {
         case 'artikel':
             require 'page/artikel.php';
             break;
+            case 'detailArtikle':
+                require 'page/detailArtikle.php';
+                break;
         case 'profile':
             require 'page/profile.php';
             break;

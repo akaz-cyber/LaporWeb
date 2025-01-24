@@ -43,7 +43,7 @@ require_once('helper.php');
 					<img src="/LaporWeb/page/img/eminem.jpg" alt="Thumbnail 1" class="rounded">
 					<div class="ms-3">
 						<p class="mb-1 fw-bold text-truncate-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry... </p>
-						<button class="btn btn-sm btn-red">Selengkapnya</button>
+						<button class="btn btn-sm btn-red"  onclick="window.location.href='/LaporWeb/detailArtikle'">Selengkapnya</button>
 					</div>
 				</div>
 				<!-- Thumbnail Card 2 -->
@@ -51,15 +51,15 @@ require_once('helper.php');
 					<img src="/LaporWeb/page/img/news2.jpeg" alt="Thumbnail 2" class="rounded">
 					<div class="ms-3">
 						<p class="mb-1 fw-bold text-truncate-2">Lorem Ipsum is simply dummy text of the printing</p>
-						<button class="btn btn-sm btn-red">Selengkapnya</button>
+						<button class="btn btn-sm btn-red" onclick="window.location.href='/LaporWeb/detailArtikle'">Selengkapnya</button>
 					</div>
 				</div>
 				<!-- Thumbnail Card 3 -->
 				<div class="card-thumbnail d-flex align-items-center mb-3">
-					<img src="/LaporWeb/page/img/news2.jpeg" alt="Thumbnail 3" class="rounded">
+					<img src="/LaporWeb/page/img/image.png" alt="Thumbnail 3" class="rounded">
 					<div class="ms-3">
-						<p class="mb-1 fw-bold text-truncate-2">Lorem Ipsum is simply dummy text of the printing</p>
-						<button class="btn btn-sm btn-red">Selengkapnya</button>
+						<p class="mb-1 fw-bold text-truncate-2">soal janji prabowo dirikan 300 fakultas kedokteran, begini kata kemendikti</p>
+						<button class="btn btn-sm btn-red" onclick="window.location.href='/LaporWeb/detailArtikle'">Selengkapnya</button>
 					</div>
 				</div>
 			</div>
