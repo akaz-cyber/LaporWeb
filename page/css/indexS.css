@@ -12,3 +12,26 @@ input {
     outline: none;
     width: 100%;
 }
+
+.img-rev{
+
+    height: 40px;
+}
+
+
+@media (max-width: 768px) { 
+    .custom-rounded {
+      border-radius: 5px !important; 
+    }
+
+    .font-size-font{
+        font-size: 15px;
+       
+    }
+    .img-rev{
+        height: 20px;
+        padding-left: 10px;
+        padding-top: 10px;
+
+    }
+  }

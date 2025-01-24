@@ -19,7 +19,7 @@
 
 <body>
     <a class="nav-link mt-3 " href="/LaporWeb/" style="width: 6%;"><img src="/LaporWeb/page/img/back.png" alt="Lapor" class="img-fluid"></a>
-<div class="mx-auto" style="width:700px;">
+<div class="mx-auto">
    <div class="mb-4">
         <h1 class="text-center fw-bold ">Selamat datang, silahkan masuk dahulu untuk melapor</h1>
    </div>
@@ -37,8 +37,8 @@
             <p class="text-white mx-3 fw-bold">Layanan SP4N-LAPOR! mengumpulkan data pribadi pengguna sebagai jaminan keabsahan dari aduan atau aspirasi yang disampaikan, pengenal identitas, memverifikasi akun dan mengirim notifikasi laporan, menilai tingkat partisipasi publik, pengolahan dan analisis data, penyusunan perencanaan dan pengambilan kebijakan, monitoring dan evaluasi, dan mendorong terciptanya kebijakan yang inklusif.</p>
 
         </div>
-        <div class="col-md-8 mt-4 text-center mx-auto bg-orange w-50 rounded-pill border border-dark">
-            <p class="text-white mx-auto mt-2 fw-bold"> Isilah data diri dengan baik dan benar!</p>
+        <div class="col-md-8 mt-4 text-center mx-auto bg-orange w-50 rounded-pill custom-rounded border border-dark">
+            <p class="text-white mx-auto mt-2 font-size-font fw-bold"> Isilah data diri dengan baik dan benar!</p>
 
 
         </div>
