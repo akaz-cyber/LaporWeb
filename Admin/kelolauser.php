@@ -1,10 +1,21 @@
 <?php
+
+
+
+
 session_start();
+
+if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '1') {
+    http_response_code(404); 
+    require 'page/404.php'; 
+    exit();
+}
 
 // Cek apakah user sudah login dan apakah memiliki role 'Admin'
 if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '1') {
-    header("Location:login");
-    exit;
+    http_response_code(404); 
+    require 'page/404.php'; 
+    exit();
 }
 
 // Memanggil file get_users.php untuk mengambil data users

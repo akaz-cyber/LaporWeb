@@ -1,17 +1,15 @@
 <?php
-session_start(); // Pastikan session aktif untuk mengambil data pengguna yang sedang login
-require_once 'koneksi.php'; // Sesuaikan dengan file koneksi database Anda
-
-// Mengecek apakah pengguna sudah login
+session_start(); 
+require_once 'koneksi.php'; 
+require_once('helper.php');
 if (!isset($_SESSION['id_user'])) {
-    header('Location: login.php'); // Redirect ke halaman login jika belum login
+    http_response_code(404); 
+    require 'page/404.php'; 
     exit();
 }
 
-// Ambil id_user dari session
 $id_user = $_SESSION['id_user'];
 
-// Query untuk mengambil data pengguna berdasarkan id_user
 $sql = "SELECT * FROM users WHERE id_user = ?";
 if ($stmt = $conn->prepare($sql)) {
     $stmt->bind_param("i", $id_user);
@@ -50,7 +48,7 @@ if ($stmt = $conn->prepare($sql)) {
                 <i class="bi bi-pencil-square"></i>
             </button>
             <div class="profile-header">
-                <img src="./page/img/pp2.jpeg" alt="Profile" class="profile-img">
+                <img src="/LaporWeb/page/img/profile.png" alt="Profile" class="profile-img">
                 <div class="profile-name">
                     <h3><?= $user['nama_lengkap'] ?></h3>
                     <p><?= $user['pekerjaan'] ?> | <?= $user['tempat_tinggal'] ?></p>

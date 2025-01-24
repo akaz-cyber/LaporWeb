@@ -1,4 +1,5 @@
 <?php
+
 require_once('koneksi.php');
 
 // Ambil input dari form
@@ -15,10 +16,16 @@ $tanggal_lahir = $_POST['tanggal_lahir'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
-// Validasi input
+// Validasi input password
 if ($password !== $confirm_password) {
     echo "<script>
               alert('Password dan konfirmasi password tidak cocok!');
+              window.location.href='register';    
+          </script>";
+    exit();
+} elseif (strlen($password) <= 8) {
+    echo "<script>
+              alert('Password harus 8 angka');
               window.location.href='register';    
           </script>";
     exit();

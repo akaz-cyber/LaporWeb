@@ -3,8 +3,9 @@ session_start();
 
 // Cek apakah user sudah login dan memiliki role 'Admin'
 if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '1') {
-    header("Location: login");
-    exit;
+    http_response_code(404); 
+    require 'page/404.php'; 
+    exit();
 }
 
 require_once('koneksi.php');

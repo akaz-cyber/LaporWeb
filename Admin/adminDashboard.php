@@ -2,8 +2,9 @@
 session_start();
 require_once('koneksi.php');
 if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '1') {
-    header("Location:login");
-    exit;
+    http_response_code(404); 
+    require 'page/404.php'; 
+    exit();
 }
 
 $username = $_SESSION['username'];

@@ -59,7 +59,7 @@ if (isset($_GET['url'])) {
             break;
         default:
             http_response_code(404);
-            echo "404 - Halaman tidak ditemukan";
+            require 'page/404.php'; 
             break;
     }
     exit;
