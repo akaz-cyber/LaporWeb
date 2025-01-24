@@ -33,35 +33,32 @@ $totalLaporan = $rowLaporan['id_laporan'];
 <?php include 'Admin/componen/adminHeader.php'; ?>
 
 <body>
-    <div class="d-flex vh-100">
+<div class="d-flex flex-column flex-md-row vh-100">
         <?php include 'Admin/componen/adminSidebar.php'; ?>
 
         <div class="main-content w-100">
             <div class="container-fluid p-4">
                 <h4>Dashboard</h4>
-
                 <div class="mt-3">
                     <div class="container">
-                        <div class="card-header bg-danger p-md-4 text-white d-flex justify-content-between align-items-center rounded-pill">
-                            <h1>Selamat datang di halaman admin</h1>
+                        <div class="card-header bg-danger text-white p-3 p-md-4 text-center text-md-start rounded-pill">
+                            <h1 class="h4 mb-0">Selamat datang di halaman admin</h1>
                         </div>
                     </div>
 
                     <div class="container mt-5">
-                        <div class="row justify-content-center">
+                        <div class="row g-4 justify-content-center">
                             <!-- Card Pengguna -->
-                            <div class="col-sm-8 col-md-6 col-lg-4 mb-4">
-                                <div class="card shadow">
-                                    <div class="card-custom text-center">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="text-start">
-                                                    <h1>Pengguna</h1>
-                                                    <h2><?php echo $totalPengguna; ?></h2>
-                                                </div>
-                                                <div class="card-icon mb-3">
-                                                    <i class="fa fa-user fa-3x"></i>
-                                                </div>
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="card shadow card-custom">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="text-start me-auto">
+                                                <h5>Pengguna</h5>
+                                                <h2 class="fw-bold"><?php echo $totalPengguna; ?></h2>
+                                            </div>
+                                            <div class="card-icon">
+                                                <i class="fa fa-user fa-3x"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -69,18 +66,17 @@ $totalLaporan = $rowLaporan['id_laporan'];
                             </div>
 
                             <!-- Card Laporan -->
-                            <div class="col-sm-8 col-md-6 col-lg-4 mb-4">
-                                <div class="card shadow">
-                                    <div class="card-custom text-center">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <div class="text-start">
-                                                    <h1>Laporan</h1>
-                                                    <h2><?php echo $totalLaporan; ?></h2>
-                                                </div>
-                                                <div class="card-icon mb-3">
-                                                    <i class="fa fa-file fa-3x"></i>
-                                                </div>
+                              <!-- Card Laporan -->
+                              <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="card shadow card-custom">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="text-start me-auto">
+                                                <h5>Laporan</h5>
+                                                <h2 class="fw-bold"><?php echo $totalLaporan; ?></h2>
+                                            </div>
+                                            <div class="card-icon">
+                                                <i class="fa fa-file fa-3x"></i>
                                             </div>
                                         </div>
                                     </div>

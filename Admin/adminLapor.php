@@ -39,15 +39,16 @@ $total_pages = ceil($total_row['total'] / $limit);
 <?php include 'Admin/componen/adminHeader.php'; ?>
 
 <body>
-    <div class="d-flex vh-100">
+<div class="d-flex flex-column flex-md-row vh-100">
         <!-- Sidebar -->
         <?php include 'Admin/componen/adminSidebar.php'; ?>
         <!-- Main Content -->
-        <div class="container mt-5">
+        <div class="container-fluid mt-4">
             <h1>Kelola Laporan</h1>
 
-            <table class="table table-bordered">
-                <thead>
+            <div class="table-responsive">
+            <table class="table table-bordered  table-hover">
+                <thead class=" text-center">
                     <tr>
                         <th>No</th>
                         <th>Pelapor</th>
@@ -124,6 +125,10 @@ $total_pages = ceil($total_row['total'] / $limit);
                 </tbody>
 
             </table>
+
+            </div>
+
+       
 
             <!-- Pagination -->
             <nav aria-label="Page navigation">

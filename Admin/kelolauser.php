@@ -43,9 +43,10 @@ $usersToShow = array_slice($users, $offset, $limit);
 <?php include 'Admin/componen/adminHeader.php'; ?>
 
 <body>
-    <div class="d-flex vh-100">
+<div class="d-flex flex-column flex-md-row vh-100">
         <!-- Sidebar -->
         <?php include 'Admin/componen/adminSidebar.php'; ?>
+        
         <!-- Main Content -->
         <div class="main-content w-100">
             <div class="container-fluid p-3">
@@ -54,89 +55,86 @@ $usersToShow = array_slice($users, $offset, $limit);
                 <div class="card mt-3">
                     <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
                         <span>Kelola Data Users</span>
-                        <!-- Button to trigger modal -->
                         <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addUserModal">
                             <i class="bi bi-plus"></i>
                         </button>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Username</th>
-                                    <th>Nama Lengkap</th>
-                                    <th>Email</th>
-                                    <th>Tempat Tinggal saat ini</th>
-                                    <th>Nomor Telepon</th>
-                                    <th>Tanggal Daftar</th>
-                                    <th>Tanggal Lahir</th>
-                                    <th>Penyandang Disabilitas</th>
-                                    <th>Alamat</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                // Menampilkan data users sesuai dengan halaman yang dipilih
-                                if (count($usersToShow) > 0) {
-                                    $no = $offset + 1; // Mulai nomor urut dari offset
-                                    foreach ($usersToShow as $user) {
-                                        // Menentukan hak akses berdasarkan role_id
-                                        $role = ($user['role_id'] == 1) ? 'Admin' : 'User';
-                                        echo "<tr>";
-                                        echo "<td>$no</td>";
-                                        echo "<td>{$user['username']}</td>";
-                                        echo "<td>{$user['nama_lengkap']}</td>";
-                                        echo "<td>{$user['email']}</td>";
-                                        echo "<td>{$user['tempat_tinggal']}</td>";
-                                        echo "<td>{$user['no_telp']}</td>";
-                                        echo "<td>{$user['dibuat_kapan']}</td>";
-                                        echo "<td>{$user['tanggal_lahir']}</td>";
-                                        echo "<td>{$user['penyandang_disabilitas']}</td>";
-                                        echo "<td>{$user['alamat']}</td>";
-                                        echo "<td>
-                                                <button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#editUserModal' data-id='{$user['id_user']}'>Edit</button>
-                                                <button class='btn btn-danger btn-sm' data-id='{$user['id_user']}' onclick='confirmDelete({$user['id_user']})'>Hapus</button>
-                                              </td>";
-                                        echo "</tr>";
-                                        $no++;
+                        <!-- Tabel Responsif -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Username</th>
+                                        <th>Nama Lengkap</th>
+                                        <th>Email</th>
+                                        <th>Tempat Tinggal</th>
+                                        <th>Nomor Telepon</th>
+                                        <th>Tanggal Daftar</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Penyandang Disabilitas</th>
+                                        <th>Alamat</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if (count($usersToShow) > 0) {
+                                        $no = $offset + 1; 
+                                        foreach ($usersToShow as $user) {
+                                            echo "<tr>";
+                                            echo "<td>$no</td>";
+                                            echo "<td>{$user['username']}</td>";
+                                            echo "<td>{$user['nama_lengkap']}</td>";
+                                            echo "<td>{$user['email']}</td>";
+                                            echo "<td>{$user['tempat_tinggal']}</td>";
+                                            echo "<td>{$user['no_telp']}</td>";
+                                            echo "<td>{$user['dibuat_kapan']}</td>";
+                                            echo "<td>{$user['tanggal_lahir']}</td>";
+                                            echo "<td>{$user['penyandang_disabilitas']}</td>";
+                                            echo "<td>{$user['alamat']}</td>";
+                                            echo "<td>
+                                                    <button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#editUserModal' data-id='{$user['id_user']}'>Edit</button>
+                                                    <button class='btn btn-danger btn-sm' data-id='{$user['id_user']}' onclick='confirmDelete({$user['id_user']})'>Hapus</button>
+                                                  </td>";
+                                            echo "</tr>";
+                                            $no++;
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='11'>Tidak ada data user</td></tr>";
                                     }
-                                } else {
-                                    echo "<tr><td colspan='11'>Tidak ada data user</td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
 
                         <!-- Pagination -->
                         <div class="d-flex justify-content-start mt-3">
-                            <nav aria-label="Page navigation ">
+                            <nav aria-label="Page navigation">
                                 <ul class="pagination justify-content-center">
                                     <li class="page-item <?= $page <= 1 ? 'disabled' : ''; ?>">
                                         <a class="page-link" href="?page=<?= $page - 1; ?>" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                                        <li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
-                                            <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                                        <li class="page-item <?= $i == $page ? 'active' : ''; ?>">
+                                            <a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a>
                                         </li>
                                     <?php endfor; ?>
-
-                                    <li class="page-item <?= $page >= $total_pages ? 'disabled' : ''; ?>">
+                                    <li class="page-item <?= $page >= $totalPages ? 'disabled' : ''; ?>">
                                         <a class="page-link" href="?page=<?= $page + 1; ?>" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>
                                 </ul>
-                                </ul>
                             </nav>
-
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- Modal Tambah User -->
