@@ -25,9 +25,7 @@ if (isset($_GET['action'])) {
         $sql = "DELETE FROM post_lapor WHERE id_laporan = $id_laporan";
     $message = "Laporan berhasil dihapus";
     }
-    
-    
-    
+     
     else {
         echo "Aksi tidak valid!";
         exit;

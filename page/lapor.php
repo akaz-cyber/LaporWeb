@@ -29,50 +29,56 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
 <body>
   <?php include 'component/navbar.php'; ?>
   <div class="container py-5">
+    <div class="text-center  mb-4">
+      <h1 class="text-h1-r"><b>Layanan Aspirasi dan Pengaduan Online Rakyat</b>
+        <p>Sampaikan laporan Anda langsung kepada instansi pemerintah berwenang</p>
+      </h1>
+    </div>
 
-    <h1 class="text-center mb-4">Selamat Datang, di lapor <?php echo $_SESSION['username']; ?>!</h1>
+    <div class="border-bd mx-auto mb-4"></div>
 
     <div class="form-container">
       <div class="form-header">Sampaikan Laporan Keluh Kesah Anda Sekarang!</div>
 
       <form method="POST" action="process_lapor_user">
         <div class="mb-4">
-          <label class="form-label">Pilih Jenis Laporan*</label>
+          <label class="form-label text-light">Pilih Jenis Laporan*</label>
           <div class="btn-group w-100" role="group">
             <button type="button" class="btn btn-light" onclick="setJenisLaporan(this, 'Pengaduan')">Pengaduan</button>
             <button type="button" class="btn btn-light" onclick="setJenisLaporan(this, 'Aspirasi')">Aspirasi</button>
             <button type="button" class="btn btn-light" onclick="setJenisLaporan(this, 'Permintaan Informasi')">Permintaan Informasi</button>
           </div>
+
           <input type="hidden" name="jenis_laporan" id="jenis_laporan" value="Pengaduan" required>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Judul Laporan*</label>
+          <label class="form-label text-light">Judul Laporan*</label>
           <input type="text" class="form-control" name="judul_laporan" placeholder="Judul Laporan Anda" required>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Isi Laporan*</label>
+          <label class="form-label text-light">Isi Laporan*</label>
           <textarea class="form-control" name="isi_laporan" rows="4" placeholder="Ketik isi laporan Anda" required></textarea>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Tanggal Kejadian*</label>
+          <label class="form-label text-light">Tanggal Kejadian*</label>
           <input type="date" class="form-control" name="tanggal_kejadian" required>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Lokasi Kejadian*</label>
+          <label class="form-label text-light">Lokasi Kejadian*</label>
           <input type="text" class="form-control" name="lokasi_kejadian" placeholder="Lokasi Kejadian" required>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Instansi Tujuan*</label>
+          <label class="form-label text-light">Instansi Tujuan*</label>
           <input type="text" class="form-control" name="instansi_tujuan" placeholder="Instansi Tujuan" required>
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Kategori Laporan*</label>
+          <label class="form-label text-light">Kategori Laporan*</label>
           <input type="text" class="form-control" name="kategori_laporan" placeholder="Kategori Laporan" required>
         </div>
 
@@ -82,12 +88,15 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
   </div>
 
   <div class="container mt-3">
-      <h2>Filter Laporan</h2>
-      <div class="d-flex mb-3">
-        <a href="?filter=all" class="btn <?php echo ($filter == 'all') ? 'btn-primary' : 'btn-light'; ?> me-2">Semua Laporan</a>
-        <a href="?filter=my" class="btn <?php echo ($filter == 'my') ? 'btn-primary' : 'btn-light'; ?>">Laporan Saya</a>
-      </div>
+    <?php
+    $filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
+    ?>
+    <div class="nav-filter d-flex mb-3">
+      <a href="?filter=all" class="<?php echo ($filter == 'all') ? 'active' : ''; ?> fw-bold me-3">Semua Laporan</a>
+      <a href="?filter=my" class="<?php echo ($filter == 'my') ? 'active' : ''; ?> fw-bold">Laporan Saya</a>
     </div>
+
+  </div>
 
 
 
@@ -101,48 +110,63 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
   }
   $result = $conn->query($sql); ?>
 
-
   <div class="container">
-    <h3>Daftar Laporan</h3>
-    <?php
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        echo "<div class='card mb-3'>";
-        echo "<div class='card-header fw-bold'>" . htmlspecialchars($row['username']) . "</div>";
-        echo "<div class='card-body'>";
-        echo "<h5 class='card-title'> judul laporan :" . htmlspecialchars($row['judul_laporan']) . " | " . $row['status'] . "</h5>";
-        echo "<p class='card-text'> kategori :" . nl2br(htmlspecialchars($row['kategori_laporan'])) . "</p>";
-        echo "<p class='card-text'> Instansi_tujuan :" . nl2br(htmlspecialchars($row['instansi_tujuan'])) . "</p>";
-        echo "<p class='card-text'> isi laporan :" . nl2br(htmlspecialchars($row['isi_laporan'])) . "</p>";
-        echo "<p class='card-text'> status :" . nl2br(htmlspecialchars($row['status'])) . "</p>";
-        echo "<p class='card-text'> isi laporan :" . nl2br(htmlspecialchars($row['jenis_laporan'])) . "</p>";
-        echo "<p class='text-muted'>Tanggal dibuat: " . date('d M Y', strtotime($row['dibuat_kapan'])) . "</p>";
-        echo "</div>";
-        echo "</div>";
-      }
-    } else {
-      echo "<p>Tidak ada laporan untuk ditampilkan.</p>";
-    }
-    ?>
+    <?php if ($result->num_rows > 0): ?>
+      <?php foreach ($result as $row): ?>
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <img class="rounded-avatar" src="/LaporWeb/page/img/profile.png" alt="">
+              <h5 class="ms-3 mb-0"><?= htmlspecialchars($row['username']) ?></h5>
+            </div>
+            <div class="mt-3">
+              <h5 class="text-primary">Judul Laporan: <?= htmlspecialchars($row['judul_laporan']) ?> - <span class=""><?= htmlspecialchars($row['lokasi_kejadian']) ?></span></h5>
+              <p class="text-muted"> <?= date('d M Y', strtotime($row['dibuat_kapan'])) ?> - <span class="status-<?= strtolower($row['status']) ?>"><?= htmlspecialchars($row['status']) ?></span></p>
+              <p><strong>Kategori:</strong> <?= htmlspecialchars($row['kategori_laporan']) ?></p>
+              <p><strong>Instansi Tujuan:</strong> <?= htmlspecialchars($row['instansi_tujuan']) ?></p>
+              <p><strong>Jenis Laporan:</strong> <?= htmlspecialchars($row['jenis_laporan']) ?></p>
+              <p><strong>Isi Laporan:</strong> <?= nl2br(htmlspecialchars($row['isi_laporan'])) ?></p>
+            </div>
+            <?php if (strtolower($row['status']) === 'ditolak'): ?>
+              <p class="fw-bold">Pesan kenapa di tolak : </p>
+              <div class="message-box mt-3">
+                <p><?= htmlspecialchars($row['alasan_ditolak']) ?></p>
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </div>
+
 
   </div>
   <script>
+    // Fungsi untuk menetapkan tombol aktif
     function setJenisLaporan(button, value) {
-        // Atur semua tombol kembali ke kelas "btn-light"
-        document.querySelectorAll('.btn-group .btn').forEach(btn => {
-            btn.classList.remove('btn-active');
-            btn.classList.add('btn-light');
-        });
+      // Atur semua tombol kembali ke kelas "btn-light"
+      document.querySelectorAll('.btn-group .btn').forEach(btn => {
+        btn.classList.remove('btn-active');
+        btn.classList.add('btn-light');
+      });
 
-        // Tambahkan kelas "btn-active" pada tombol yang diklik
-        button.classList.remove('btn-light');
-        button.classList.add('btn-active');
+      // Tambahkan kelas "btn-active" pada tombol yang diklik
+      button.classList.remove('btn-light');
+      button.classList.add('btn-active');
 
-        // Set nilai input tersembunyi
-        document.getElementById('jenis_laporan').value = value;
+      // Set nilai input tersembunyi
+      document.getElementById('jenis_laporan').value = value;
     }
+
+    // Pastikan tombol "Pengaduan" aktif secara default saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      const defaultButton = document.querySelector('.btn-group .btn:first-child');
+      if (defaultButton) {
+        setJenisLaporan(defaultButton, 'Pengaduan');
+      }
+    });
   </script>
+
   <?php include 'page/component/footer.php'; ?>
 </body>
 

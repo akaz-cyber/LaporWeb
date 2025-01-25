@@ -28,7 +28,7 @@ body {
 
   .btn-active {
     background-color: #ffc107;
-    color: black;
+    color: rgb(255, 255, 255);
   }
 
   .form-control {
@@ -103,13 +103,89 @@ body {
     color: #6c757d;
   }
 
-  .btn-active {
-      background-color: yellow;
-      color: black;
-  }
+  
 
   .btn-light {
       background-color: white;
       color: black;
   }
   
+
+  .nav-filter a {
+    color: black; /* Default warna teks */
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    padding-bottom: 5px;
+  }
+  
+  .nav-filter a.active {
+    color: #32A4F5; /* Warna teks biru untuk filter aktif */
+    font-weight: bold;
+    border-bottom: 4px solid #133E99; /* Garis bawah hitam */
+  }
+  
+  .nav-filter a:hover {
+    color: #32A4F5; /* Warna saat di-hover */
+  }
+  
+  .border-bd{
+    width: 40px;
+    border-bottom: 4px solid #000000;
+
+  }
+
+
+/* Rounded avatar for username */
+.rounded-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+/* Message box for unclear reports */
+.message-box {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border: 2px solid;
+  border-radius: 10px;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* Status styles */
+.status-pending {
+  color: orange; /* Untuk status Pending */
+  font-weight: bold;
+}
+
+.status-ditolak {
+  color: red; /* Untuk status Ditolak */
+  font-weight: bold;
+}
+
+.status-disetujui {
+  color: green; /* Untuk status Disetujui */
+  font-weight: bold;
+}
+
+.status-selesai {
+  color: blue; /* Untuk status Selesai */
+  font-weight: bold;
+}
+
+/* Card padding and spacing */
+.card {
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+}
+
+
+
+  @media (max-width: 768px) { 
+  
+    .text-h1-r{
+      font-size: 18px;
+    }
+  }

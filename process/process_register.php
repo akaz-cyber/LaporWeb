@@ -16,6 +16,22 @@ $tanggal_lahir = $_POST['tanggal_lahir'];
 $password = $_POST['password'];
 $confirm_password = $_POST['confirm_password'];
 
+//validasi jika kosong
+if (
+    empty($email) || empty($username) || empty($nik) || empty($nama_lengkap) || empty($tempat_tinggal) || 
+    empty($no_telp) || empty($penyandang_disabilitas) || empty($jenis_kelamin) || empty($pekerjaan) || 
+    empty($tanggal_lahir) || empty($password) || empty($confirm_password)
+) {
+    echo "<script>
+              alert('Tolong isi terlebih dahulu');
+              window.location.href='register';    
+          </script>";
+    exit();
+}
+
+
+
+
 // Validasi input password
 if ($password !== $confirm_password) {
     echo "<script>
@@ -23,11 +39,11 @@ if ($password !== $confirm_password) {
               window.location.href='register';    
           </script>";
     exit();
-} elseif (strlen($password) <= 8) {
+} elseif (strlen($password) < 5) {
     echo "<script>
-              alert('Password harus 8 angka');
+              alert('Password harus 5 angka');
               window.location.href='register';    
-          </script>";
+          </script>"; 
     exit();
 }
 

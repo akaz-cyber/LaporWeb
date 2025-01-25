@@ -15,6 +15,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $instansi_tujuan = $_POST['instansi_tujuan'];
     $kategori_laporan = $_POST['kategori_laporan'];
 
+    if (empty($jenis_laporan)) {
+      echo '
+      <script>
+        alert("Jenis laporan tidak boleh kosong");
+        window.history.back(); // Kembali ke halaman sebelumnya
+      </script>
+      ';
+      exit;
+  }
+
+
     // Tambahkan laporan ke database
     $sql = "INSERT INTO post_lapor (judul_laporan, isi_laporan, tanggal_kejadian, jenis_laporan, lokasi_kejadian, instansi_tujuan, kategori_laporan, status, id_user)
             VALUES ('$judul_laporan', '$isi_laporan', '$tanggal_kejadian', '$jenis_laporan', '$lokasi_kejadian', '$instansi_tujuan', '$kategori_laporan', 'Pending', $id_user)";
