@@ -23,7 +23,7 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != '2') {
 
   <link rel="stylesheet" href="/LaporWeb/page/css/lapor.css">
 
-  <title>Hello, world!</title>
+  <title>Halaman lapor</title>
 </head>
 
 <body>
