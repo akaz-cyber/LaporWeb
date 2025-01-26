@@ -16,13 +16,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $confirmPassword = $_POST['confirm_password']; 
 
      // Validasi jika password diisi
-     if (!empty($password) && $password !== $confirmPassword) {
-        // Menampilkan alert dan tetap di halaman yang sama
-        echo "<script>
-            alert('Password dan konfirmasi password tidak cocok!');
-            window.history.back();
-        </script>";
-        exit;
+     if (!empty($password)) {
+        if (strlen($password) < 5) {
+            // Menampilkan alert jika password kurang dari 5 karakter
+            echo "<script>
+                alert('Password harus minimal 5 karakter!');
+                window.history.back();
+            </script>";
+            exit;
+        } elseif ($password !== $confirmPassword) {
+            // Menampilkan alert jika password dan konfirmasi tidak cocok
+            echo "<script>
+                alert('Password dan konfirmasi password tidak cocok!');
+                window.history.back();
+            </script>";
+            exit;
+        }
     }
 
       // Update query

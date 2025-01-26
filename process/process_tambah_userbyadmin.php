@@ -18,7 +18,12 @@ $confirm_password = $_POST['confirm_password'];
 // Validasi input password
 if ($password !== $confirm_password) {
     // Menampilkan alert dan tetap di halaman yang sama
-    echo "<script>alert('Password dan konfirmasi password tidak cocok!'); window.location.href='kelolauser';</script>";
+    echo "<script>alert('Password dan konfirmasi password tidak cocok!');  window.history.back();</script>";
+    exit;
+}elseif (strlen($password) < 5) {
+    // Menampilkan alert jika password kurang dari 5 karakter
+    echo "<script>alert('Password harus minimal 5 karakter!'); 
+    window.history.back();</script>";
     exit;
 }
 
