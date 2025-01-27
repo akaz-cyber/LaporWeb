@@ -53,26 +53,26 @@ require_once('helper.php');
           <div class="card">
             <img src="/LaporWeb/page/img/eminem.jpg" class="card-img-top" alt="Berita 1">
             <div class="card-body">
-              <h5 class="card-title">Judul Berita 1</h5>
-              <p class="card-text">Lorem Ipsum is simply dummy text of the printing.</p>
+              <h5 class="card-title">Kasus Suap inisial AY</h5>
+              <p class="card-text">Pemberian uang auntuk mempengaruhi keputusan seseorang yang memiliki kuasa.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/LaporWeb/page/img/news2.1.jpeg" class="card-img-top" alt="Berita 2">
+            <img src="/LaporWeb/page/img/portal-berita.jpg" class="card-img-top" alt="Berita 2">
             <div class="card-body">
-              <h5 class="card-title">Judul Berita 2</h5>
-              <p class="card-text">Lorem Ipsum is simply dummy text of the printing.</p>
+              <h5 class="card-title">Penyebaran Informasi di Internet</h5>
+              <p class="card-text">Berita yang menyebar dengan sangat cepat di internet, seringkali melalui media sosial.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <img src="/LaporWeb/page/img/news3.jpg" class="card-img-top" alt="Berita 3">
+            <img src="/LaporWeb/page/img/desa.jpg" class="card-img-top" alt="Berita 3">
             <div class="card-body">
-              <h5 class="card-title">Judul Berita 3</h5>
-              <p class="card-text">Lorem Ipsum is simply dummy text of the printing.</p>
+              <h5 class="card-title">Penyebab Banjir </h5>
+              <p class="card-text">Kondisi di mana air sungai meluap hingga menggenangi daerah di sekitarnya.</p>
             </div>
           </div>
         </div>
@@ -91,17 +91,17 @@ require_once('helper.php');
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="d-flex justify-content-center">
-              <img src="/LaporWeb/page/img/news3.jpg" alt="User" class="rounded-circle" style="height: 80px;">
+              <img src="/LaporWeb/page/img/profile.png" alt="User" class="rounded-circle" style="height: 80px;">
             </div>
             <h5 class="mt-3">John Doe</h5>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Saya ingin melaporkan kondisi jalan Baleendah yang sangat memprihatinkan. Jalan tersebut mengalami kerusakan parah, terutama pada bagian tengah jalan yang terdapat lubang-lubang besar dan dalam. Kondisi ini sangat membahayakan pengguna jalan, terutama pengendara sepeda motor. Saya harap pihak terkait dapat segera melakukan perbaikan jalan ini agar tidak menimbulkan kecelakaan lalu lintas. Terlampir foto kondisi jalan saat ini.".</p>
           </div>
           <div class="carousel-item">
             <div class="d-flex justify-content-center">
-              <img src="/LaporWeb/page/img/news3.jpg" alt="User" class="rounded-circle" style="height: 80px;">
+              <img src="/LaporWeb/page/img/profile.png" alt="User" class="rounded-circle" style="height: 80px;">
             </div>
             <h5 class="mt-3">Jane Smith</h5>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p>Saya ingin melaporkan adanya bangunan liar yang didirikan di lahan kosong di samping rumah saya, tepatnya di [alamat lengkap]. Bangunan tersebut mulai dibangun pada tanggal [tanggal] dan terus bertambah luas hingga saat ini. Keberadaan bangunan liar ini sangat mengganggu kenyamanan dan keamanan lingkungan sekitar karena menghalangi akses jalan umum.</p>
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#topReportsCarousel" data-bs-slide="prev">

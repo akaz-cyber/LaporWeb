@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("sssssssssssi", $nama_lengkap, $username, $email, $no_telp, $tanggal_lahir, $pekerjaan, $alamat, $nik, $tempat_tinggal, $penyandang_disabilitas, $jenis_kelamin, $id_user);
         if ($stmt->execute()) {
-            header("Location: profile"); // Redirect ke halaman profil setelah berhasil update
+            echo "<script>alert('Berhasil Edit profile'); window.location.href='profile';</script>";
+         
             exit();
         } else {
             echo "Gagal mengupdate data.";
