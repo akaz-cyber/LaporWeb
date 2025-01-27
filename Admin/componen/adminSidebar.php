@@ -15,7 +15,7 @@
             <a href="kelolauser" class="nav-link text-white" id="user-link">Users</a>
         </li>
     </ul>
-    <a href="logout" class="btn btn-light mt-auto mx-3 mb-3 text-danger">
+    <a href="logout" class="btn btn-light mt-3 mx-3 mb-3 text-danger ">
         <i style="font-size:24px" class="fa">&#xf08b;</i>Keluar
     </a>
 </div>

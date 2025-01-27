@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $penyandangDisabilitas = $_POST['penyandang_disabilitas'];
      $password = $_POST['password'];
      $confirmPassword = $_POST['confirm_password']; 
+     $nik = $_POST['nik'];  // Ambil data NIK
+     $pekerjaan = $_POST['pekerjaan'];  // Ambil data Pekerjaan
 
      // Validasi jika password diisi
      if (!empty($password)) {
@@ -34,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-      // Update query
-      if (!empty($password)) {
+    // Update query
+    if (!empty($password)) {
         // Jika password diisi, hash password dan update
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
         $updateQuery = "UPDATE users SET 
@@ -47,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             email = '$email', 
             username = '$username',
             penyandang_disabilitas = '$penyandangDisabilitas', 
-            password = '$passwordHash' 
+            password = '$passwordHash',
+            nik = '$nik',  /* Menambahkan NIK */
+            pekerjaan = '$pekerjaan'  /* Menambahkan Pekerjaan */
             WHERE id_user = '$id'";
     } else {
         // Jika password tidak diisi, tidak perlu update password
@@ -59,23 +63,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             no_telp = '$noTelp', 
             email = '$email', 
             username = '$username',
-            penyandang_disabilitas = '$penyandangDisabilitas' 
+            penyandang_disabilitas = '$penyandangDisabilitas', 
+            nik = '$nik',  /* Menambahkan NIK */
+            pekerjaan = '$pekerjaan'  /* Menambahkan Pekerjaan */
             WHERE id_user = '$id'";
     }
-
-   
 
     // Eksekusi query
     if (mysqli_query($conn, $updateQuery)) {
         // Jika update berhasil
         echo "<script>alert('Pembaruan data pengguna berhasil!'); window.location.href='kelolauser';</script>";
+        exit; // Hentikan eksekusi lebih lanjut setelah alert
     } else {
         // Jika update gagal
         echo "<script>alert('Pembaruan data pengguna gagal!'); window.location.href='kelolauser';</script>";
+        exit; // Hentikan eksekusi lebih lanjut setelah alert
     }
 
-    // Redirect ke halaman kelolauser.php dengan status
-    header('Location: kelolauser?status=' . $status);
-    exit;
+
 }
 ?>

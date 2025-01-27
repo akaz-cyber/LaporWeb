@@ -62,51 +62,57 @@ $usersToShow = array_slice($users, $offset, $limit);
                     <div class="card-body">
                         <!-- Tabel Responsif -->
                         <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Username</th>
-                                        <th>Nama Lengkap</th>
-                                        <th>Email</th>
-                                        <th>Tempat Tinggal</th>
-                                        <th>Nomor Telepon</th>
-                                        <th>Tanggal Daftar</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Penyandang Disabilitas</th>
-                                        <th>Alamat</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    if (count($usersToShow) > 0) {
-                                        $no = $offset + 1; 
-                                        foreach ($usersToShow as $user) {
-                                            echo "<tr>";
-                                            echo "<td>$no</td>";
-                                            echo "<td>{$user['username']}</td>";
-                                            echo "<td>{$user['nama_lengkap']}</td>";
-                                            echo "<td>{$user['email']}</td>";
-                                            echo "<td>{$user['tempat_tinggal']}</td>";
-                                            echo "<td>{$user['no_telp']}</td>";
-                                            echo "<td>{$user['dibuat_kapan']}</td>";
-                                            echo "<td>{$user['tanggal_lahir']}</td>";
-                                            echo "<td>{$user['penyandang_disabilitas']}</td>";
-                                            echo "<td>{$user['alamat']}</td>";
-                                            echo "<td>
-                                                    <button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#editUserModal' data-id='{$user['id_user']}'>Edit</button>
-                                                    <button class='btn btn-danger btn-sm' data-id='{$user['id_user']}' onclick='confirmDelete({$user['id_user']})'>Hapus</button>
-                                                  </td>";
-                                            echo "</tr>";
-                                            $no++;
-                                        }
-                                    } else {
-                                        echo "<tr><td colspan='11'>Tidak ada data user</td></tr>";
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                        <table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>No</th>
+            <th>Username</th>
+            <th>Nama Lengkap</th>
+            <th>Email</th>
+            <th>Tempat Tinggal</th>
+            <th>Nomor Telepon</th>
+            <th>Tanggal Daftar</th>
+            <th>Tanggal Lahir</th>
+            <th>Penyandang Disabilitas</th>
+            <th>NIK</th>
+            <th>Pekerjaan</th>
+            <th>Jenis Kelamin</th>
+            <th>Alamat</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if (count($usersToShow) > 0) {
+            $no = $offset + 1; 
+            foreach ($usersToShow as $user) {
+                echo "<tr>";
+                echo "<td>$no</td>";
+                echo "<td>{$user['username']}</td>";
+                echo "<td>{$user['nama_lengkap']}</td>";
+                echo "<td>{$user['email']}</td>";
+                echo "<td>{$user['tempat_tinggal']}</td>";
+                echo "<td>{$user['no_telp']}</td>";
+                echo "<td>{$user['dibuat_kapan']}</td>";
+                echo "<td>{$user['tanggal_lahir']}</td>";
+                echo "<td>{$user['penyandang_disabilitas']}</td>";
+                echo "<td>{$user['nik']}</td>";
+                echo "<td>{$user['pekerjaan']}</td>";
+                echo "<td>{$user['jenis_kelamin']}</td>";
+                echo "<td>{$user['alamat']}</td>";
+                echo "<td>
+                        <button class='btn btn-primary btn-sm' data-bs-toggle='modal' data-bs-target='#editUserModal' data-id='{$user['id_user']}' data-nama='{$user['nama_lengkap']}' data-username='{$user['username']}' data-email='{$user['email']}' data-no_telp='{$user['no_telp']}' data-tanggal_lahir='{$user['tanggal_lahir']}' data-jenis_kelamin='{$user['jenis_kelamin']}' data-pekerjaan='{$user['pekerjaan']}' data-penyandang_disabilitas='{$user['penyandang_disabilitas']}' data-tempat_tinggal='{$user['tempat_tinggal']}' data-nik='{$user['nik']}' data-alamat='{$user['alamat']}'>Edit</button>
+                        <button class='btn btn-danger btn-sm' data-id='{$user['id_user']}' onclick='confirmDelete({$user['id_user']})'>Hapus</button>
+                      </td>";
+                echo "</tr>";
+                $no++;
+            }
+        } else {
+            echo "<tr><td colspan='13'>Tidak ada data user</td></tr>";
+        }
+        ?>
+    </tbody>
+</table>
                         </div>
 
                         <!-- Pagination -->
@@ -255,6 +261,11 @@ $usersToShow = array_slice($users, $offset, $limit);
                                         <input type="date" class="form-control" id="editTanggalLahir" name="tanggal_lahir"
                                             required>
                                     </div>
+                                  
+                            <div class="mb-3">
+                                <label for="editPekerjaan" class="form-label">Pekerjaan</label>
+                                <input type="text" class="form-control" id="editPekerjaan" name="pekerjaan" required>
+                            </div>
                                     <div class="mb-3">
                                         <label for="editJenisKelamin" class="form-label">Jenis Kelamin</label>
                                         <select class="form-select" id="editJenisKelamin" name="jenis_kelamin" required>
@@ -288,6 +299,10 @@ $usersToShow = array_slice($users, $offset, $limit);
                                         </select>
                                     </div>
                                     <div class="mb-3">
+                                <label for="editNIK" class="form-label">NIK</label>
+                                <input type="text" class="form-control" id="editNIK" name="nik" required>
+                            </div>
+                                    <div class="mb-3">
                                         <label for="editPassword" class="form-label">Password (Opsional)</label>
                                         <input type="password" class="form-control" id="editPassword" name="password">
                                     </div>
@@ -303,7 +318,9 @@ $usersToShow = array_slice($users, $offset, $limit);
                 </div>
             </div>
         </div>
+      
         <script src="/LaporWeb/Admin/componen/js/kelolauser.js"></script>
+        <script src="/LaporWeb/Admin/componen/js/edituser.js"></script>
 
 
 </body>

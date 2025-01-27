@@ -19,8 +19,12 @@ if (isset($_GET['id_user'])) {
     if ($stmt = $conn->prepare($sqlDeleteUser)) {
         $stmt->bind_param("i", $id_user);
         if ($stmt->execute()) {
-            header("Location: kelolauser"); // Redirect ke halaman kelolauser
-            exit();
+            // Menampilkan alert jika berhasil menghapus pengguna
+            echo "<script>
+                    alert('Pengguna berhasil dihapus!');
+                    window.location.href = 'kelolauser'; // Mengalihkan setelah alert
+                  </script>";
+            exit(); // Hentikan eksekusi setelah pengalihan
         } else {
             echo "Gagal menghapus data pengguna.";
         }
@@ -32,5 +36,4 @@ if (isset($_GET['id_user'])) {
 } else {
     echo "ID pengguna tidak ditemukan.";
 }
-
 ?>
