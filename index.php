@@ -16,7 +16,7 @@ require_once('helper.php');
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="page/css/cardindex.css">
-  <title>Hello, world!</title>
+  <title>Home page</title>
 </head>
 
 <body>
@@ -34,9 +34,13 @@ require_once('helper.php');
         </div>
         <!-- Kolom untuk teks -->
         <div class="col-md-6">
-          <h2>Laporan Masalah Anda, Kami Siap Mendengar</h2>
+          <div class="mt-4 mt-md-0"></div>
+          <h2 >Laporan Masalah Anda, Kami Siap Mendengar</h2>
           <p>Sampaikan keluhan atau masalah Anda dengan mudah dan cepat melalui platform kami.</p>
-          <a href="/LaporWeb/login" class="btn btn-danger btn-lg">LAPOR</a>
+          <div class="text-center text-sm-start">
+
+            <a href="/LaporWeb/login" class="btn btn-danger btn-lg">LAPOR</a>
+          </div>
 
         </div>
       </div>
@@ -80,12 +84,12 @@ require_once('helper.php');
 
 
       <div class="text-center mt-4">
-        <button class="btn btn-outline-danger">Selengkapnya</button>
+        <a class="btn btn-outline-danger" href="artikel">Selengkapnya</a>
       </div>
     </section>
 
     <!-- Laporan Teratas Section -->
-    <section class="text-center">
+    <section class="text-center shadow ">
       <h3>Laporan Teratas</h3>
       <div id="topReportsCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -104,7 +108,7 @@ require_once('helper.php');
             <p>Saya ingin melaporkan adanya bangunan liar yang didirikan di lahan kosong di samping rumah saya, tepatnya di [alamat lengkap]. Bangunan tersebut mulai dibangun pada tanggal [tanggal] dan terus bertambah luas hingga saat ini. Keberadaan bangunan liar ini sangat mengganggu kenyamanan dan keamanan lingkungan sekitar karena menghalangi akses jalan umum.</p>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#topReportsCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev " type="button" data-bs-target="#topReportsCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
