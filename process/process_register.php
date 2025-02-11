@@ -32,6 +32,7 @@ if (
 
 
 
+
 // Validasi input password
 if ($password !== $confirm_password) {
     echo "<script>
@@ -41,7 +42,13 @@ if ($password !== $confirm_password) {
     exit();
 } elseif (strlen($password) < 5) {
     echo "<script>
-              alert('Password harus 5 angka');
+              alert('Kata sandi harus terdiri dari 5 karakter.');
+              window.location.href='register';    
+          </script>"; 
+    exit();
+} elseif (strlen($nik) <= 15) {
+    echo "<script>
+              alert('Maaf Nik tidak valid');
               window.location.href='register';    
           </script>"; 
     exit();

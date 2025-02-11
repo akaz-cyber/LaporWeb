@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <link rel="stylesheet" href="/LaporWeb/page/css/login.css">
+    <link rel="stylesheet" href="/LaporWeb/page/css/login.css">
     <link rel="stylesheet" href="page/css/indexS.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -19,16 +16,16 @@
 
 <body>
     <a class="nav-link mt-3 " href="/LaporWeb/" style="width: 6%;"><img src="/LaporWeb/page/img/back.png" alt="Lapor" class="img-fluid"></a>
-<div class="mx-auto">
-   <div class="mb-4">
-        <h1 class="text-center fw-bold ">Selamat datang, silahkan masuk dahulu untuk melapor</h1>
-   </div>
-    
-    <div class="border border-3 border-dark mb-4 mx-auto" style="width: 120px;"></div>
+    <div class="mx-auto">
+        <div class="mb-4">
+            <h1 class="text-center fw-bold ">Selamat datang, silahkan masuk dahulu untuk melapor</h1>
+        </div>
+
+        <div class="border border-3 border-dark mb-4 mx-auto" style="width: 120px;"></div>
 
 
-</div>
-   
+    </div>
+
     <!-- kontainer utama yang di atas ga masukin sengaja -->
     <div class="main mx-5">
 
@@ -62,7 +59,7 @@
                     <input type="text" name="tempat_tinggal" required><br><br>
 
                     <label>Nomor Telepon:</label><br>
-                    <input type="text" name="no_telp" maxlength="15" required><br><br>
+                    <input type="number" name="no_telp" maxlength="15" required><br><br>
 
 
                 </div>
@@ -94,8 +91,9 @@
                 <button type="submit" class="mx-5-auto w-70 p-3  fs-4 fw-bold bg-danger text-white shadow">Daftar</button>
             </div>
         </form>
-        <div class="text-center mt-4 "> <p>Belum punya akun?  <a href="login">Masuk</a></p>
-                </div>
+        <div class="text-center mt-4 ">
+            <p>Belum punya akun? <a href="login">Masuk</a></p>
+        </div>
     </div>
 
     <?php include 'page/component/footer.php'; ?>

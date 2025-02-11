@@ -25,6 +25,12 @@ if ($password !== $confirm_password) {
     echo "<script>alert('Password harus minimal 5 karakter!'); 
     window.history.back();</script>";
     exit;
+}elseif (strlen($nik) <= 15) {
+    echo "<script>
+              alert('Maaf Nik tidak valid');
+              window.location.href='register';    
+          </script>"; 
+    exit();
 }
 
 // Hash password
