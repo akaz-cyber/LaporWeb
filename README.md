@@ -2,5 +2,5 @@ UNTUK MEMENUHI TUGAS UAS PEMOGRAMAN WEB 1
 
 LOGIN UNTUK ADMIN:
 
-admin@gmail.com
-admin123
+Email: admin@gmail.com
+Password: admin123
